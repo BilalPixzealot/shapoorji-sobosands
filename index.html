@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SOBO SANDS THE ODYSSEY — Mumbai's First Beachfront Address. Off Marine Drive. By Shapoorji Pallonji Real Estate.">
+  <title>SOBO SANDS THE ODYSSEY | Mumbai's First Beachfront Address</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C4965A',
+            'gold-dark': '#A87A40',
+            'dark-bg': '#1C1712',
+            cream: '#F5F0E8',
+            sand: '#E8DDD0',
+            'text-dark': '#1A1A1A',
+            'text-mid': '#4A4A4A',
+            'text-light': '#888888',
+            border: '#E0D8CC',
+          },
+          fontFamily: {
+            display: ['Optima', 'sans-serif'],
+            body: ['Optima', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Optima';
+      src: url('../data/Fonts/Optima Medium.ttf') format('truetype');
+      font-weight: 300 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Optima';
+      src: url('../data/Fonts/OptimaBold.ttf') format('truetype');
+      font-weight: 600 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Critical above-fold CSS */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Optima', sans-serif; }
+
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #navbar.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 1px 12px rgba(0,0,0,0.08);
+    }
+    #navbar.scrolled .nav-link { color: #1A1A1A; }
+    #navbar.scrolled .logo-text { color: #1A1A1A; }
+    #navbar.scrolled .logo-sub { color: #4A4A4A; }
+    #navbar.scrolled .nav-logo { filter: invert(1); }
+
+    .nav-link {
+      font-family: 'Optima', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #C4965A; }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .logo-sub {
+      font-family: 'Optima', sans-serif;
+      font-size: 8px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+    }
+
+    .hero-section {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.1) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+    }
+
+    .gold-rule {
+      display: block;
+      width: 40px;
+      height: 1px;
+      background-color: #C4965A;
+      margin: 20px 0;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #C4965A;
+      color: #ffffff;
+      font-family: 'Optima', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .btn-gold:hover { background-color: #A87A40; }
+
+    /* Navbar-specific CTA — compact, matches mockup */
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      background-color: #C4965A;
+      color: #ffffff;
+      font-family: 'Optima', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-nav:hover { background-color: #A87A40; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: 'Optima', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 13px 24px;
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: #ffffff; }
+
+    /* Form input bottom-border only */
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #E0D8CC;
+      padding: 10px 0;
+      font-family: 'Optima', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #1A1A1A;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: #888888; }
+    .form-input:focus { border-bottom-color: #C4965A; }
+
+    .form-input-dark {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(196,150,90,0.5);
+      padding: 10px 0;
+      font-family: 'Optima', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input-dark::placeholder { color: rgba(255,255,255,0.45); }
+    .form-input-dark:focus { border-bottom-color: #C4965A; }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      padding: 24px 32px;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu .nav-link { color: #1A1A1A; display: block; }
+
+    .gallery-track-wrapper { overflow: hidden; }
+    .gallery-track { display: flex; transition: transform 0.4s ease; }
+
+    /* Gallery card widths — CSS, no JS needed */
+    .gallery-card { flex-shrink: 0; width: 100%; }
+    @media (min-width: 640px) {
+      .gallery-card { width: calc(50% - 5px); }
+    }
+    @media (min-width: 1024px) {
+      .gallery-card { width: calc(25% - 7.5px); }
+    }
+
+    /* Comparison right column — black bg with gradient merge */
+    .cmp-right-col { position: relative; background: rgb(238 231 222); display: flex; align-items: center; padding: 48px 44px; }
+    .cmp-right-col::before {
+      content: '';
+      background: linear-gradient(90deg, rgb(238 231 222 / 0%) 0%, rgb(238 231 222) 100%);
+      position: absolute;
+      top: 0;
+      left: -30%;
+      width: 30%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Hero form card input reset */
+    .preview-input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent;
+      flex: 1;
+      font-family: 'Optima', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #1A1A1A;
+      padding: 10px 28px 10px 0;
+      width: 100%;
+    }
+    .preview-input:focus {
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .preview-input::placeholder { color: #B8B0A8; }
+    .input-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #E8E0D8;
+      margin-bottom: 4px;
+      transition: border-bottom-color 0.2s;
+    }
+    .input-field:focus-within { border-bottom-color: #C4965A; }
+    .input-field:focus-within svg { stroke: #C4965A; }
+
+    @media (max-width: 639px) {
+      .hero-content { padding: 0 24px; flex-direction: column; justify-content: center; gap: 32px; padding-top: 80px; }
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .hero-content { padding: 0 40px; }
+    }
+  </style>
+</head>
+<body class="font-body" style="color:#1A1A1A;">
+
+<!-- ============================================================ -->
+<!-- SECTION 1: NAVBAR -->
+<!-- ============================================================ -->
+<nav id="navbar" class="w-full">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between relative">
+
+    <!-- Logo -->
+    <a href="#" class="flex-shrink-0">
+      <img src="images/shapoorji-logo.png" alt="SOBO SANDS THE ODYSSEY" class="nav-logo" style="height:38px;width:auto;object-fit:contain;transition:filter 0.3s ease;">
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#story" class="nav-link">The Story</a>
+      <a href="#residences" class="nav-link">Residences</a>
+      <a href="#vistas" class="nav-link">Vistas</a>
+      <!-- <a href="#floor-plan" class="nav-link">Floor Plan</a>
+      <a href="#location" class="nav-link">Location</a>
+      <a href="#contact" class="nav-link">Contact</a> -->
+    </div>
+
+    <!-- CTA + Hamburger -->
+    <!-- <div class="flex items-center gap-4">
+      <a href="#contact" class="btn-nav hidden sm:inline-flex">Register Interest</a>
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-1" aria-label="Open menu">
+        <span class="block w-6 h-px bg-white hamburger-line" style="transition:background-color 0.3s;"></span>
+        <span class="block w-6 h-px bg-white hamburger-line" style="transition:background-color 0.3s;"></span>
+        <span class="block w-6 h-px bg-white hamburger-line" style="transition:background-color 0.3s;"></span>
+      </button>
+    </div> -->
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#story" class="nav-link">The Story</a>
+      <a href="#residences" class="nav-link">Residences</a>
+      <a href="#vistas" class="nav-link">Vistas</a>
+      <a href="#floor-plan" class="nav-link">Floor Plan</a>
+      <a href="#location" class="nav-link">Location</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#contact" class="btn-nav self-start sm:hidden">Register Interest</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: HERO -->
+<!-- ============================================================ -->
+<section id="hero" class="hero-section">
+
+  <!-- Background Image -->
+  <img src="images/main-banner.jpg" alt="Mumbai Marine Drive aerial" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+
+  <!-- Dark overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Hero Content -->
+  <div class="hero-content">
+
+    <!-- Left: Text content -->
+    <div class="flex-1 max-w-xl">
+      <!-- Eyebrow -->
+      <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:#C4965A;margin-bottom:20px;">
+        The Beachfront Side of Queen's Necklace
+      </p>
+
+      <!-- H1 -->
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.5vw,52px);font-weight:300;color:#ffffff;line-height:1.05;letter-spacing:0.02em;">
+        MUMBAI'S FIRST<br>BEACHFRONT<br>ADDRESS
+      </h1>
+
+      <!-- Gold rule -->
+      <span class="gold-rule"></span>
+
+      <!-- Tagline -->
+      <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:32px;">
+        A rare privilege.<br>Only for a fortunate few.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <button onclick="showHeroForm()" class="btn-gold">
+          Schedule Private Preview
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button onclick="showHeroForm()" class="btn-outline">
+          Download Brochure
+          <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <path d="M5 1V11M5 11L1 7M5 11L9 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right: Private Preview Card (hidden by default, shown on button click) -->
+    <div id="hero-form-card" class="hidden lg:block flex-shrink-0 ml-auto" style="width:300px;align-self:center;opacity:0;transition:opacity 0.4s ease;pointer-events:none;">
+      <div style="background:#FFFFFF;padding:30px 28px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.2);border-radius:0;overflow:hidden;">
+
+        <!-- Card Header -->
+        <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#1A1A1A;margin-bottom:6px;text-align:center;">Private Preview</p>
+        <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:300;color:#888888;text-align:center;letter-spacing:0.04em;">By invitation only.</p>
+        <div style="width:28px;height:1px;background:#C4965A;margin:16px auto 22px;"></div>
+
+        <!-- Form -->
+        <form onsubmit="return false;">
+
+          <!-- Full Name -->
+          <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:20px;transition:border-color 0.2s;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
+            <input type="text" placeholder="Full Name" required
+              style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+
+          <!-- Mobile Number -->
+          <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:20px;transition:border-color 0.2s;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
+            <input type="tel" placeholder="Mobile Number" required
+              style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.68 19.79 19.79 0 01.37 2.08 2 2 0 012.35 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-.78a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+
+          <!-- Email Address -->
+          <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:26px;transition:border-color 0.2s;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
+            <input type="email" placeholder="Email Address" required
+              style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:13px 20px;font-size:10px;letter-spacing:0.18em;border-radius:0;">Request Invitation</button>
+        </form>
+
+        <!-- Security note -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;">
+          <svg width="11" height="13" viewBox="0 0 24 28" fill="none" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="16" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+            <circle cx="12" cy="19" r="1.5" fill="#BBBBBB" stroke="none"/>
+          </svg>
+          <span style="font-family:'Optima',sans-serif;font-size:10px;color:#BBBBBB;letter-spacing:0.05em;">Your details are safe with us.</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:12px;white-space:nowrap;">
+    <!-- Mouse scroll wheel icon -->
+    <div style="width:18px;height:28px;border:1.5px solid rgba(255,255,255,0.6);border-radius:9px;display:flex;justify-content:center;padding-top:5px;flex-shrink:0;">
+      <div style="width:1.5px;height:5px;background:rgba(255,255,255,0.8);border-radius:2px;"></div>
+    </div>
+    <p style="font-family:'Optima',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin:0;">Scroll to Discover</p>
+  </div>
+
+</section>
+
+<!-- Mobile Hero Form (below hero on mobile) -->
+<div class="lg:hidden" style="background:#FFFFFF;padding:30px 24px;">
+  <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#1A1A1A;margin-bottom:6px;text-align:center;">Private Preview</p>
+  <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:300;color:#888888;text-align:center;letter-spacing:0.04em;">By invitation only.</p>
+  <div style="width:28px;height:1px;background:#C4965A;margin:16px auto 22px;"></div>
+  <form onsubmit="return false;">
+    <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:20px;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
+      <input type="text" placeholder="Full Name" required style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:20px;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
+      <input type="tel" placeholder="Mobile Number" required style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.68 19.79 19.79 0 01.37 2.08 2 2 0 012.35 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-.78a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+    </div>
+    <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:26px;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
+      <input type="email" placeholder="Email Address" required style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+      </svg>
+    </div>
+    <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:13px 20px;font-size:10px;letter-spacing:0.18em;border-radius:0;">Request Invitation</button>
+  </form>
+  <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;">
+    <svg width="11" height="13" viewBox="0 0 24 28" fill="none" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="16" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+      <circle cx="12" cy="19" r="1.5" fill="#BBBBBB" stroke="none"/>
+    </svg>
+    <span style="font-family:'Optima',sans-serif;font-size:10px;color:#BBBBBB;letter-spacing:0.05em;">Your details are safe with us.</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 3: STORY -->
+<!-- ============================================================ -->
+<section id="story" style="background-color:#FFFFFF;">
+  <div class="max-w-screen-xl mx-auto mr-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-start" style="grid-template-columns:0.9fr 0.5fr 1fr; align-items: center;">
+
+      <!-- Col 1: H2 (35%) -->
+      <div style="grid-column:span 1;">
+        <!-- Elegant swallow icon -->
+        <svg width="36" height="18" viewBox="0 0 36 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:18px;">
+          <path d="M18 9 C14 3, 6 1, 1 2 C5 4, 9 7, 10 11 C12 8, 15 7, 18 9Z" fill="#C4965A" opacity="0.85"/>
+          <path d="M18 9 C22 3, 30 1, 35 2 C31 4, 27 7, 26 11 C24 8, 21 7, 18 9Z" fill="#C4965A" opacity="0.85"/>
+          <path d="M18 9 C17 13, 15 17, 13 18 C15 16, 17 13, 18 9Z" fill="#C4965A" opacity="0.7"/>
+          <path d="M18 9 C19 13, 21 17, 23 18 C21 16, 19 13, 18 9Z" fill="#C4965A" opacity="0.7"/>
+        </svg>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.6vw,52px);font-weight:300;color:#1A1A1A;line-height:1.08;letter-spacing:0.01em;">
+          A CENTURY OF<br>PRESTIGE.<br>MEASURED BY<br>THE SEA.
+        </h2>
+        <span style="display:block;width:30px;height:1px;background:#C4965A;margin-top:24px;"></span>
+      </div>
+
+      <!-- Col 2: Body Text (35%) -->
+      <div style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;color:#2C2218;line-height:1.85;">
+        <p style="margin-bottom:22px;">In South Bombay, the sea has always been the measure of arrival.</p>
+        <p style="margin-bottom:22px;">For a century, every great address claimed its place by claiming the water.</p>
+        <p style="margin-bottom:22px;">So the sea view became the ceiling.<br>Every tower has one.<br>It separates no one.</p>
+        <p style="font-family:'Optima',sans-serif;font-size:18px;font-weight:400;font-style:normal;color:#C4965A;letter-spacing:0.03em;line-height:1;">UNTIL NOW.</p>
+      </div>
+
+      <!-- Col 3: Image (30%) -->
+      <div>
+        <div style="width:100%;height:480px;overflow:hidden;">
+          <img src="images/century-of-prestige.jpg" alt="Luxury residence overlooking the sea" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 4: INTRODUCING SOBO SANDS -->
+<!-- ============================================================ -->
+<section id="residences">
+  <div class="flex flex-col lg:flex-row">
+
+    <!-- Left: Building Image (40%) -->
+    <div class="w-full lg:w-2/5" style="overflow:hidden;">
+      <img src="images/century-of-prestige.jpg" alt="SOBO SANDS tower exterior" style="width:100%;height:700px;object-fit:cover;object-position:center;display:block;">
+    </div>
+
+    <!-- Right: Content (60%) -->
+    <div class="w-full lg:w-1/2 flex items-center" style="background:#FFFFFF;padding:60px 52px;">
+      <div class="w-full">
+        <!-- Eyebrow -->
+        <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:#C4965A;margin-bottom:16px;">Introducing</p>
+
+        <!-- Brand Name -->
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,56px);font-weight:300;color:#1A1A1A;line-height:1.0;letter-spacing:0.06em;margin-bottom:2px;">SOBO SANDS</h2>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.6vw,22px);font-weight:300;color:#1A1A1A;letter-spacing:0.18em;margin-bottom:10px;">THE ODYSSEY</h3>
+        <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:300;color:#888888;letter-spacing:0.08em;margin-bottom:32px;">Off Marine Drive, Mumbai</p>
+
+        <!-- Gold Divider -->
+        <div style="width:40px;height:1px;background:#C4965A;opacity:0.35;margin-bottom:36px;"></div>
+
+        <!-- Features Grid 2x3 -->
+        <div class="grid grid-cols-2 gap-x-20 gap-y-6 w-full lg:w-5/5">
+
+          <!-- Hexagon / Floor Residence -->
+          <div class="flex items-center gap-5">
+            <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+              <path d="M9 1L16.79 5.5V13.5L9 18L1.21 13.5V5.5L9 1Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Entire-Floor Grand Lateral Residence</span>
+          </div>
+
+          <!-- Crane / Sky Gallery -->
+          <div class="flex items-center gap-5">
+            <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+              <path d="M3 18V4L9 1L15 4V18" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 7H15" stroke="#C4965A" stroke-width="1" stroke-linecap="round"/>
+              <path d="M6 18V12H12V18" stroke="#C4965A" stroke-width="1" stroke-linejoin="round"/>
+              <rect x="7.5" y="3" width="3" height="3" rx="0.5" stroke="#C4965A" stroke-width="0.8"/>
+            </svg>
+            <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Private Sky Gallery Experience</span>
+          </div>
+
+          <!-- Car -->
+          <div class="flex items-center gap-5">
+            <svg width="30" height="30" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;">
+              <path d="M4 8H2C1.45 8 1 8.45 1 9V12H19V9C19 8.45 18.55 8 18 8H16" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M4 8L6 2H14L16 8H4Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
+              <circle cx="5" cy="12" r="2" stroke="#C4965A" stroke-width="1.1"/>
+              <circle cx="15" cy="12" r="2" stroke="#C4965A" stroke-width="1.1"/>
+            </svg>
+            <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">6 Premium Car Parks</span>
+          </div>
+
+          <!-- Shield -->
+          <div class="flex items-center gap-5">
+            <svg width="30" height="30" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+              <path d="M8 1L1 4V9C1 12.87 4.13 16.48 8 17.5C11.87 16.48 15 12.87 15 9V4L8 1Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
+              <path d="M5.5 9L7 10.5L10.5 7" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">SPRE Assurance</span>
+          </div>
+
+          <!-- Sun -->
+          <div class="flex items-center gap-5">
+            <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+              <circle cx="9" cy="9" r="3.5" stroke="#C4965A" stroke-width="1.1"/>
+              <path d="M9 1V2.5M9 15.5V17M1 9H2.5M15.5 9H17M3.22 3.22L4.28 4.28M13.72 13.72L14.78 14.78M14.78 3.22L13.72 4.28M4.28 13.72L3.22 14.78" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+            <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Light-Filled, Cross-Ventilated</span>
+          </div>
+
+          <!-- Diamond -->
+          <div class="flex items-center gap-5">
+            <svg width="30" height="30" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;">
+              <path d="M9 15L1 6L4 1H14L17 6L9 15Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
+              <path d="M1 6H17M4 1L7 6M14 1L11 6" stroke="#C4965A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Rare. Refined. Exclusive.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 5: THE RESIDENCE EXPERIENCE (Gallery Carousel) -->
+<!-- ============================================================ -->
+<section id="vistas" style="background-color:#FFFFFF;padding:48px 0;">
+
+  <!-- Header Row -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 40px;margin-bottom:28px;">
+    <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#4A4A4A;">The Residence Experience</p>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button id="gallery-prev" aria-label="Previous" class="gallery-arrow-btn" onclick="galleryMove(-1)" style="width:36px;height:36px;border-radius:50%;border:1px solid #8A8A8A;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C4965A';this.querySelector('path').setAttribute('stroke','#C4965A');" onmouseout="this.style.borderColor='#8A8A8A';this.querySelector('path').setAttribute('stroke','#8A8A8A');">
+        <svg width="14" height="9" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 5H1M1 5L5 1M1 5L5 9" stroke="#8A8A8A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button id="gallery-next" aria-label="Next" class="gallery-arrow-btn" onclick="galleryMove(1)" style="width:36px;height:36px;border-radius:50%;border:1px solid #8A8A8A;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C4965A';this.querySelector('path').setAttribute('stroke','#C4965A');" onmouseout="this.style.borderColor='#8A8A8A';this.querySelector('path').setAttribute('stroke','#8A8A8A');">
+        <svg width="14" height="9" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="#8A8A8A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Gallery Track — page-level side padding, gap between cards -->
+  <div style="width:100%;overflow:hidden;padding:0 40px;">
+    <div class="gallery-track" id="gallery-track" style="display:flex;gap:10px;transition:transform 0.4s ease;">
+
+      <!-- Card 1 -->
+      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+        <img src="images/slider/1.jpg" alt="Sky Gallery" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
+          <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Sky Gallery</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+        <img src="images/slider/2.jpg" alt="Living Area" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
+          <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Living Area</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+        <img src="images/slider/3.jpg" alt="Master Suite" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
+          <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Master Suite</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+        <img src="images/slider/4.jpg" alt="Lobby" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
+          <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Lobby</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+        <img src="images/slider/5.jpg" alt="Night View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
+          <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Night View</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 6: COMPARISON -->
+<!-- ============================================================ -->
+<section id="comparison">
+  <div style="display:grid;grid-template-columns:2fr 1fr;height:420px;">
+
+    <!-- Left 2/3: Comparison Slider -->
+    <div>
+      <div id="img-comparison" style="position:relative;height:420px;overflow:hidden;cursor:ew-resize;user-select:none;">
+
+        <!-- RIGHT image: SOBO SANDS (full size, behind) -->
+        <div style="position:absolute;inset:0;">
+          <img src="images/facing-the-sea-right.jpg" alt="SOBO SANDS Beachfront" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+          <!-- dark overlay for text readability -->
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
+          <!-- SOBO SANDS text overlay — bottom of right half -->
+          <div style="position:absolute;bottom:24px;left:50%;right:0;padding:0 24px;">
+            <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#C4965A;margin-bottom:6px;">SOBO SANDS Beachfront</p>
+            <p style="font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#ffffff;line-height:1.6;">Living on the shoreline.<br>The sea at your doorstep.</p>
+          </div>
+        </div>
+
+        <!-- LEFT image: Typical (clips to reveal right on drag) -->
+        <div id="cmp-left" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
+          <div id="cmp-left-inner" style="position:absolute;top:0;left:0;bottom:0;width:100vw;">
+            <img src="images/facing-the-sea-left.jpg" alt="Typical Sea View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+            <!-- dark overlay for text readability -->
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
+            <!-- Text overlay — bottom left -->
+            <div style="position:absolute;bottom:24px;left:0;right:0;padding:0 24px;">
+              <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#C4965A;margin-bottom:6px;">Typical Sea View</p>
+              <p style="font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#ffffff;line-height:1.6;">Facing the sea.<br>A view from afar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drag handle: vertical line + circle button -->
+        <div id="cmp-handle" style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:2px;background:rgba(255,255,255,0.6);cursor:ew-resize;pointer-events:none;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;gap:2px;box-shadow:0 2px 12px rgba(0,0,0,0.25);pointer-events:all;cursor:ew-resize;">
+            <svg width="8" height="10" viewBox="0 0 8 10" fill="none"><path d="M5 1L1 5L5 9" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="8" height="10" viewBox="0 0 8 10" fill="none"><path d="M3 1L7 5L3 9" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right 1/3: Quote — black bg, gradient ::before merges with slider -->
+    <div class="cmp-right-col">
+      <h3 style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.8vw,40px);font-weight:300;color:#1A1A1A;line-height:1.15;letter-spacing:0.01em;">
+        NOT JUST<br>FACING THE SEA.<br>LIVING ON THE<br>SHORELINE.
+      </h3>
+    </div>
+
+  </div>
+</section>
+<script>
+(function(){
+  var slider   = document.getElementById('img-comparison');
+  var leftPane = document.getElementById('cmp-left');
+  var handle   = document.getElementById('cmp-handle');
+  if (!slider) return;
+  var dragging = false;
+  function setPos(clientX) {
+    var rect = slider.getBoundingClientRect();
+    var x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    var pct = (x / rect.width * 100).toFixed(2) + '%';
+    leftPane.style.width = pct;
+    handle.style.left = pct;
+  }
+  slider.addEventListener('mousedown',   function(e){ dragging = true; setPos(e.clientX); e.preventDefault(); });
+  document.addEventListener('mousemove', function(e){ if (dragging) setPos(e.clientX); });
+  document.addEventListener('mouseup',   function()  { dragging = false; });
+  slider.addEventListener('touchstart',  function(e){ dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
+  document.addEventListener('touchmove', function(e){ if (dragging) setPos(e.touches[0].clientX); }, {passive:true});
+  document.addEventListener('touchend',  function()  { dragging = false; });
+})();
+</script>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 7: FOOTER CTA + FOOTER BAR -->
+<!-- ============================================================ -->
+<footer id="contact" style="padding: 72px 0 30px; position: relative;">
+  <!-- Background image -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="images/footer-bg.jpg" alt="Mumbai beachfront" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,6,2,0.82) 45%,rgba(10,6,2,0.55) 100%);"></div>
+  </div>
+
+  <!-- Footer CTA Form Strip — single full-width bg image, 2-col layout -->
+  <div style="position:relative;overflow:hidden;">
+
+    <!-- Content -->
+    <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0px 60px;">
+      <div style="display:flex;flex-direction:row;align-items:center;gap:60px;">
+
+        <!-- Left: Heading (40%) -->
+        <div style="flex:0 0 26%;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,24px);font-weight:300;color:#ffffff;line-height:1.2;margin-bottom:12px;">BY INVITATION ONLY</h2>
+          <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:300;color:rgba(255,255,255,0.5);letter-spacing:0.02em;line-height:1.65;">Experience Mumbai's most <br>exclusive beachfront residences.</p>
+        </div>
+
+        <!-- Right: Form (60%) -->
+        <div style="flex:1;">
+          <form onsubmit="return handleFooterForm(event);" style="display: flex; gap: 10px;">
+            <!-- 3 fields in a row -->
+            <div style="display:flex;flex-direction:row;gap:10px;">
+              <div style="flex:1;border:1px solid rgba(196,150,90,0.4);">
+                <input type="text" placeholder="Full Name" required
+                  style="width:100%; height:100%; background:transparent;border:none;outline:none;padding:10px;font-family:'Optima',sans-serif;font-size:13px;font-weight:300;color:#ffffff;"
+                  onfocus="this.parentElement.style.borderBottomColor='#C4965A'" onblur="this.parentElement.style.borderBottomColor='rgba(196,150,90,0.4)'">
+              </div>
+              <div style="flex:1;border:1px solid rgba(196,150,90,0.4);">
+                <input type="tel" placeholder="Mobile Number" required
+                  style="width:100%; height:100%; background:transparent;border:none;outline:none;padding:10px;font-family:'Optima',sans-serif;font-size:13px;font-weight:300;color:#ffffff;"
+                  onfocus="this.parentElement.style.borderBottomColor='#C4965A'" onblur="this.parentElement.style.borderBottomColor='rgba(196,150,90,0.4)'">
+              </div>
+              <div style="flex:1;border:1px solid rgba(196,150,90,0.4);">
+                <input type="email" placeholder="Email Address" required
+                  style="width:100%; height:100%; background:transparent;border:none;outline:none;padding:10px;font-family:'Optima',sans-serif;font-size:13px;font-weight:300;color:#ffffff;"
+                  onfocus="this.parentElement.style.borderBottomColor='#C4965A'" onblur="this.parentElement.style.borderBottomColor='rgba(196,150,90,0.4)'">
+              </div>
+            </div>
+            <!-- Button -->
+            <div style="display:flex;justify-content:flex-end;">
+              <button type="submit" style="display:inline-flex;align-items:center;gap:10px;background-color:#C4965A;color:#ffffff;font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;padding:14px 28px;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;">
+                REQUEST PRIVATE PRESENTATION
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;">
+                  <path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- Footer Bar -->
+    <div style="padding:24px 0;">
+      <div style="max-width:1280px;margin:0 auto;padding:0 60px;">
+        <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;">
+
+          <!-- Logo -->
+          <div style="flex-shrink:0;">
+            <img src="images/sobo-sands-logo.png" alt="SOBO SANDS THE ODYSSEY" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+          </div>
+
+          <!-- Center: A Project By + SP Logo -->
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);">A PROJECT BY</span>
+            <img src="images/shapoorji-logo.png" alt="Shapoorji Pallonji Real Estate" style="height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.75;">
+          </div>
+
+          <!-- Links + Social -->
+          <div style="display:flex;align-items:center;gap:20px;">
+            <a href="#" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a>
+            <span style="color:rgba(255,255,255,0.2);font-size:10px;">|</span>
+            <a href="#" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Terms &amp; Conditions</a>
+            <div style="width:1px;height:14px;background:rgba(255,255,255,0.15);margin:0 4px;"></div>
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" aria-label="Facebook" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2H15a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" aria-label="YouTube" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+              <svg width="18" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" aria-label="LinkedIn" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</footer>
+
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT (deferred) -->
+<!-- ============================================================ -->
+<script>
+  // 1. Navbar scroll behavior
+  (function () {
+    var navbar = document.getElementById('navbar');
+    var hamburgerLines = document.querySelectorAll('.hamburger-line');
+
+    function onScroll() {
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+        hamburgerLines.forEach(function (l) { l.style.backgroundColor = '#1A1A1A'; });
+      } else {
+        navbar.classList.remove('scrolled');
+        hamburgerLines.forEach(function (l) { l.style.backgroundColor = '#ffffff'; });
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // 2. Hero form card reveal on button click
+  function showHeroForm() {
+    var card = document.getElementById('hero-form-card');
+    if (!card) return;
+    card.style.opacity = '0';
+    card.style.pointerEvents = 'all';
+    // Force reflow then fade in
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        card.style.opacity = '1';
+      });
+    });
+  }
+
+  // 3. Mobile hamburger toggle
+  (function () {
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+      });
+    });
+  })();
+
+  // 3. Gallery carousel
+  function galleryMove(dir) {
+    var track = document.getElementById('gallery-track');
+    var cards = track.querySelectorAll('.gallery-card');
+    var w = window.innerWidth;
+    var visible = w < 640 ? 1 : w < 1024 ? 2 : 4;
+    var max = Math.max(0, cards.length - visible);
+    var idx = parseInt(track.getAttribute('data-idx') || '0', 10);
+    idx = Math.max(0, Math.min(idx + dir, max));
+    track.setAttribute('data-idx', idx);
+    var cardW = cards[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + (idx * (cardW + 10)) + 'px)';
+  }
+  window.addEventListener('resize', function() {
+    var track = document.getElementById('gallery-track');
+    track.setAttribute('data-idx', '0');
+    track.style.transform = 'translateX(0)';
+  });
+
+  // 4. Comparison slider — handled by inline script after section HTML
+
+  // 5. Footer form handler (basic validation)
+  function handleFooterForm(e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type=submit]');
+    var orig = btn.textContent;
+    btn.textContent = 'Submitted!';
+    btn.style.backgroundColor = '#A87A40';
+    setTimeout(function () {
+      btn.textContent = orig;
+      btn.style.backgroundColor = '';
+      form.reset();
+    }, 2500);
+    return false;
+  }
+</script>
+
+</body>
+</html>
