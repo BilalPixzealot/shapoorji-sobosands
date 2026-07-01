@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SOBO SANDS THE ODYSSEY — Mumbai's First Beachfront Address. Off Marine Drive. By Shapoorji Pallonji Real Estate.">
-  <title>SOBO SANDS THE ODYSSEY | Mumbai's First Beachfront Address</title>
+  <meta name="description" content="SOBO SANDS THE ODYSSEY — Mumbai's FINEST Beachfront Address. Off Marine Drive. By Shapoorji Pallonji Real Estate.">
+  <title>SOBO SANDS THE ODYSSEY | Mumbai's FINEST Beachfront Address</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,7 @@
 
     /* Critical above-fold CSS */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Optima', sans-serif; }
+    body { font-family: 'Optima', sans-serif; background:linear-gradient(to top,#caa886 0%,#eee7de 100%)}
 
     #navbar {
       position: fixed;
@@ -253,10 +253,10 @@
     }
 
     /* Comparison right column — black bg with gradient merge */
-    .cmp-right-col { position: relative; background: rgb(238 231 222); display: flex; align-items: center; padding: 48px 44px; }
+    .cmp-right-col { position: relative; background: #caa886; display: flex; align-items: center; padding: 48px 44px; }
     .cmp-right-col::before {
       content: '';
-      background: linear-gradient(90deg, rgb(238 231 222 / 0%) 0%, rgb(238 231 222) 100%);
+      background: linear-gradient(90deg, rgb(238 231 222 / 0%) 0%, #caa886 100%);
       position: absolute;
       top: 0;
       left: -30%;
@@ -305,6 +305,15 @@
     @media (min-width: 640px) and (max-width: 1023px) {
       .hero-content { padding: 0 40px; }
     }
+
+    /* Wide-screen containers — above 1500px, go full width with 80px side padding (matches .hero-content) */
+    @media (min-width: 1500px) {
+      .wide-container {
+        max-width: 100% !important;
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+      }
+    }
   </style>
 </head>
 <body class="font-body" style="color:#1A1A1A;">
@@ -313,7 +322,7 @@
 <!-- SECTION 1: NAVBAR -->
 <!-- ============================================================ -->
 <nav id="navbar" class="w-full">
-  <div class="max-w-screen-xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between relative">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between relative wide-container">
 
     <!-- Logo -->
     <a href="#" class="flex-shrink-0">
@@ -370,20 +379,22 @@
     <!-- Left: Text content -->
     <div class="flex-1 max-w-xl">
       <!-- Eyebrow -->
-      <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:#C4965A;margin-bottom:20px;">
+      <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:#C4965A;margin-bottom:10px;">
         The Beachfront Side of Queen's Necklace
       </p>
 
       <!-- H1 -->
-      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.5vw,52px);font-weight:300;color:#ffffff;line-height:1.05;letter-spacing:0.02em;">
-        MUMBAI'S FIRST<br>BEACHFRONT<br>ADDRESS
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.5vw,52px);font-weight:300;color:#ffffff;line-height:0.95;letter-spacing:0.02em;">
+        MUMBAI'S FINEST<br>BEACHFRONT<br>ADDRESS
       </h1>
+
+      <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width:60%;height:100%;">
 
       <!-- Gold rule -->
       <span class="gold-rule"></span>
 
       <!-- Tagline -->
-      <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:32px;">
+      <p style="font-family:'Optima',sans-serif;font-size:16px;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:32px;">
         A rare privilege.<br>Only for a fortunate few.
       </p>
 
@@ -406,7 +417,12 @@
 
     <!-- Right: Private Preview Card (hidden by default, shown on button click) -->
     <div id="hero-form-card" class="hidden lg:block flex-shrink-0 ml-auto" style="width:300px;align-self:center;opacity:0;transition:opacity 0.4s ease;pointer-events:none;">
-      <div style="background:#FFFFFF;padding:30px 28px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.2);border-radius:0;overflow:hidden;">
+      <div style="position:relative;background:#FFFFFF;padding:30px 28px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.2);border-radius:0;overflow:hidden;">
+
+        <!-- Close button -->
+        <button type="button" onclick="hideHeroForm()" aria-label="Close" style="position:absolute;top:14px;right:14px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:0;line-height:0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
 
         <!-- Card Header -->
         <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#1A1A1A;margin-bottom:6px;text-align:center;">Private Preview</p>
@@ -510,8 +526,8 @@
 <!-- ============================================================ -->
 <!-- SECTION 3: STORY -->
 <!-- ============================================================ -->
-<section id="story" style="background-color:#eee7de;">
-  <div class="max-w-screen-xl mx-auto mr-0">
+<section id="story" >
+  <div class="max-w-screen-xl mx-auto mr-0 wide-container" style="padding-right:0 !important;">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-start" style="grid-template-columns:0.9fr 0.5fr 1fr; align-items: center;">
 
       <!-- Col 1: H2 (35%) -->
@@ -539,7 +555,7 @@
 
       <!-- Col 3: Image (30%) -->
       <div>
-        <div style="width:100%;height:480px;overflow:hidden;">
+        <div style="width:100%;height:580px;overflow:hidden;">
           <img src="images/century-of-prestige.jpg" alt="Luxury residence overlooking the sea" style="width:100%;height:100%;object-fit:cover;object-position:center;">
         </div>
       </div>
@@ -552,22 +568,23 @@
 <!-- ============================================================ -->
 <!-- SECTION 4: INTRODUCING SOBO SANDS -->
 <!-- ============================================================ -->
-<section id="residences" style="background-color:#eee7de;"">
+<section id="residences">
   <div class="flex flex-col lg:flex-row">
 
     <!-- Left: Building Image (40%) -->
-    <div class="w-full lg:w-2/5" style="overflow:hidden;">
-      <img src="images/century-of-prestige.jpg" alt="SOBO SANDS tower exterior" style="width:100%;height:700px;object-fit:cover;object-position:center;display:block;">
+    <div class="w-full lg:w-1/2" style="overflow:hidden;">
+      <img src="images/introducing-sobo-sands.jpg" alt="SOBO SANDS tower exterior" style="width:100%;object-fit:cover;object-position:center;display:block;">
     </div>
 
     <!-- Right: Content (60%) -->
-    <div class="w-full lg:w-1/2 flex items-center" style="background:#eee7de;padding:60px 52px;">
+    <div class="w-full lg:w-1/2 flex items-center" style="padding:60px 52px;">
       <div class="w-full">
         <!-- Eyebrow -->
         <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:#C4965A;margin-bottom:16px;">Introducing</p>
 
         <!-- Brand Name -->
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,56px);font-weight:300;color:#1A1A1A;line-height:1.0;letter-spacing:0.06em;margin-bottom:2px;">SOBO SANDS</h2>
+        <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width: 360px;display:block;filter: invert(1);margin: -3% 0 20px 0;">
+
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.6vw,22px);font-weight:300;color:#1A1A1A;letter-spacing:0.18em;margin-bottom:10px;">THE ODYSSEY</h3>
         <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:300;color:#888888;letter-spacing:0.08em;margin-bottom:32px;">Off Marine Drive, Mumbai</p>
 
@@ -645,7 +662,7 @@
 <!-- ============================================================ -->
 <!-- SECTION 5: THE RESIDENCE EXPERIENCE (Gallery Carousel) -->
 <!-- ============================================================ -->
-<section id="vistas" style="background-color:#eee7de;padding:48px 0;">
+<section id="vistas" style="padding:48px 0;">
 
   <!-- Header Row -->
   <div style="display:flex;align-items:center;justify-content:space-between;padding:0 40px;margin-bottom:28px;">
@@ -669,7 +686,7 @@
     <div class="gallery-track" id="gallery-track" style="display:flex;gap:10px;transition:transform 0.4s ease;">
 
       <!-- Card 1 -->
-      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+      <div class="gallery-card flex-shrink-0" onclick="openLightbox(0)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
         <img src="images/slider/1.jpg" alt="Sky Gallery" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Sky Gallery</span>
@@ -677,7 +694,7 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+      <div class="gallery-card flex-shrink-0" onclick="openLightbox(1)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
         <img src="images/slider/2.jpg" alt="Living Area" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Living Area</span>
@@ -685,7 +702,7 @@
       </div>
 
       <!-- Card 3 -->
-      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+      <div class="gallery-card flex-shrink-0" onclick="openLightbox(2)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
         <img src="images/slider/3.jpg" alt="Master Suite" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Master Suite</span>
@@ -693,7 +710,7 @@
       </div>
 
       <!-- Card 4 -->
-      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+      <div class="gallery-card flex-shrink-0" onclick="openLightbox(3)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
         <img src="images/slider/4.jpg" alt="Lobby" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Lobby</span>
@@ -701,13 +718,32 @@
       </div>
 
       <!-- Card 5 -->
-      <div class="gallery-card flex-shrink-0" style="position:relative;height:250px;border-radius:4px;overflow:hidden;">
+      <div class="gallery-card flex-shrink-0" onclick="openLightbox(4)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
         <img src="images/slider/5.jpg" alt="Night View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Night View</span>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- Lightbox / Fancybox popup -->
+  <div id="gallery-lightbox" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
+    <button aria-label="Close" onclick="closeLightbox()" style="position:absolute;top:24px;right:32px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <button aria-label="Previous" onclick="lightboxMove(-1)" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
+      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M15 5H1M1 5L5 1M1 5L5 9" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button aria-label="Next" onclick="lightboxMove(1)" style="position:absolute;right:20px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;">
+      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div style="max-width:85vw;max-height:85vh;text-align:center;">
+      <img id="gallery-lightbox-img" src="" alt="" style="max-width:85vw;max-height:75vh;object-fit:contain;border-radius:2px;">
+      <p id="gallery-lightbox-caption" style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;margin-top:18px;"></p>
     </div>
   </div>
 </section>
@@ -725,7 +761,7 @@
 
         <!-- RIGHT image: SOBO SANDS (full size, behind) -->
         <div style="position:absolute;inset:0;">
-          <img src="images/facing-the-sea-right.jpg" alt="SOBO SANDS Beachfront" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="images/facing-the-sea-left.jpg" alt="SOBO SANDS Beachfront" style="width:100%;height:100%;object-fit:cover;object-position:center;">
           <!-- dark overlay for text readability -->
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
           <!-- SOBO SANDS text overlay — bottom of right half -->
@@ -737,8 +773,8 @@
 
         <!-- LEFT image: Typical (clips to reveal right on drag) -->
         <div id="cmp-left" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-          <div id="cmp-left-inner" style="position:absolute;top:0;left:0;bottom:0;width:100vw;">
-            <img src="images/facing-the-sea-left.jpg" alt="Typical Sea View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+          <div id="cmp-left-inner" style="position:absolute;top:0;left:0;bottom:0;width:66vw;">
+            <img src="images/facing-the-sea-right.jpg" alt="Typical Sea View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
             <!-- dark overlay for text readability -->
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
             <!-- Text overlay — bottom left -->
@@ -807,7 +843,7 @@
   <div style="position:relative;overflow:hidden;">
 
     <!-- Content -->
-    <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0px 60px;">
+    <div class="wide-container" style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0px 60px;">
       <div style="display:flex;flex-direction:row;align-items:center;gap:60px;">
 
         <!-- Left: Heading (40%) -->
@@ -854,7 +890,7 @@
     
     <!-- Footer Bar -->
     <div style="padding:24px 0;">
-      <div style="max-width:1280px;margin:0 auto;padding:0 60px;">
+      <div class="wide-container" style="max-width:1280px;margin:0 auto;padding:0 60px;">
         <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;">
 
           <!-- Logo -->
@@ -908,6 +944,18 @@
         </div>
       </div>
     </div>
+
+    <!-- Site Address + Legal Disclaimer -->
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding:24px 0;">
+      <div class="wide-container" style="max-width:1280px;margin:0 auto;padding:0 60px;">
+        <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.04em;color:rgba(255,255,255,0.55);margin-bottom:14px;">
+          Site Address: Shapoorji Pallonji The Odyssey, Harishchandra Goregaonkar Road, Off Marine Drive, Gamdevi, Mumbai 400 007.
+        </p>
+        <p style="font-family:'Optima',sans-serif;font-size:9.5px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.35);">
+          Disclaimer: The project development and marketing are managed by Shapoorji Pallonji Group company in collaboration with Floreat Investments Private Limited (Rera No: P51900050998), the promoters of the project. The communication does not constitute an offer and/or contract of any type. Any prospective sale shall be governed by the terms and Agreement for Sale to be entered into between the parties. Before deciding on the purchase, customers are requested to independently either directly or through the concerned legal/finance advisor, thoroughly verify all details/documents pertaining to the project. The starting price ₹14.49 Cr. is for a 3 BHK &ndash; Series &quot;07&quot; on the &quot;20th&quot; floor of The Odyssey. Other charges like clubhouse development, advance building maintenance charges, corpus fund building maintenance, corpus fund, clubhouse corpus fund towards amenities, legal expenses incurred, and Government levies/taxes are extra. Visuals used are for representative purposes only. Images are digitally enhanced, and no photos have been shot at the sales-mentioned addresses. Positions, features, equipment, furniture, furnishings, light fittings etc. shown in the render are for illustration only. Other T&amp;Cs apply. For more details, visit <a href="https://sobosandsodyssey.com/" style="color:rgba(255,255,255,0.5);text-decoration:underline;">https://sobosandsodyssey.com/</a>
+        </p>
+      </div>
+    </div>
   </div>
 
 
@@ -950,10 +998,18 @@
     });
   }
 
+  function hideHeroForm() {
+    var card = document.getElementById('hero-form-card');
+    if (!card) return;
+    card.style.opacity = '0';
+    card.style.pointerEvents = 'none';
+  }
+
   // 3. Mobile hamburger toggle
   (function () {
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobile-menu');
+    if (!hamburger || !mobileMenu) return;
 
     hamburger.addEventListener('click', function () {
       mobileMenu.classList.toggle('open');
@@ -984,6 +1040,52 @@
     var track = document.getElementById('gallery-track');
     track.setAttribute('data-idx', '0');
     track.style.transform = 'translateX(0)';
+  });
+
+  // 3b. Gallery lightbox (fancybox-style popup)
+  var galleryImages = [
+    { src: 'images/slider/1.jpg', caption: 'Sky Gallery' },
+    { src: 'images/slider/2.jpg', caption: 'Living Area' },
+    { src: 'images/slider/3.jpg', caption: 'Master Suite' },
+    { src: 'images/slider/4.jpg', caption: 'Lobby' },
+    { src: 'images/slider/5.jpg', caption: 'Night View' }
+  ];
+  var lightboxIdx = 0;
+
+  function renderLightbox() {
+    var item = galleryImages[lightboxIdx];
+    document.getElementById('gallery-lightbox-img').src = item.src;
+    document.getElementById('gallery-lightbox-img').alt = item.caption;
+    document.getElementById('gallery-lightbox-caption').textContent = item.caption;
+  }
+
+  function openLightbox(idx) {
+    lightboxIdx = idx;
+    renderLightbox();
+    document.getElementById('gallery-lightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('gallery-lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function lightboxMove(dir) {
+    lightboxIdx = (lightboxIdx + dir + galleryImages.length) % galleryImages.length;
+    renderLightbox();
+  }
+
+  document.getElementById('gallery-lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('gallery-lightbox');
+    if (lb.style.display !== 'flex') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') lightboxMove(1);
+    if (e.key === 'ArrowLeft') lightboxMove(-1);
   });
 
   // 4. Comparison slider — handled by inline script after section HTML
