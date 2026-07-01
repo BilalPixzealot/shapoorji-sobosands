@@ -253,10 +253,10 @@
     }
 
     /* Comparison right column — black bg with gradient merge */
-    .cmp-right-col { position: relative; background: #caa886; display: flex; align-items: center; padding: 48px 44px; }
+    .cmp-right-col { position: relative; background: #d3b89c; display: flex; align-items: center; padding: 48px 44px; }
     .cmp-right-col::before {
       content: '';
-      background: linear-gradient(90deg, rgb(238 231 222 / 0%) 0%, #caa886 100%);
+      background: linear-gradient(90deg, rgb(238 231 222 / 0%) 0%, #d3b89c 100%);
       position: absolute;
       top: 0;
       left: -30%;
@@ -332,6 +332,86 @@
         padding-right: 80px !important;
       }
     }
+
+    /* RERA details — top-right tab that expands in place (Lodha-style) */
+    .rera-tab {
+      position: fixed;
+      top: 132px;
+      right: 0;
+      z-index: 2;
+      background: rgba(255,255,255,0.70);
+      color: #2A2A2A;
+      font-family: 'Optima', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      padding: 12px 18px;
+      border-radius: 4px 0 0 4px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      transition: opacity 0.2s;
+    }
+    .rera-tab.hidden { display: none; }
+
+    .rera-panel {
+      position: fixed;
+      top: 132px;
+      right: 0;
+      z-index: 2;
+      background: rgb(255 255 255 / 80%);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 18px;
+      border-radius: 4px 0 0 4px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+      max-width: 480px;
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s ease, opacity 0.3s ease;
+      transform: translateX(100%);
+    }
+    .rera-panel.open {
+      max-width: 480px;
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0%);
+    }
+    .rera-panel .rera-text {
+      font-family: 'Optima', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #2A2A2A;
+      line-height: 1.7;
+      white-space: normal;
+      max-width: 230px;
+    }
+    .rera-panel .rera-text b { font-weight: 600; }
+    .rera-panel .rera-text a { color: #000; word-break: break-all; }
+    .rera-panel img.rera-qr {
+      width: 84px;
+      height: 84px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .rera-panel .rera-close {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
   </style>
 </head>
 <body class="font-body" style="color:#1A1A1A;">
@@ -344,7 +424,7 @@
 
     <!-- Logo -->
     <a href="#" class="flex-shrink-0">
-      <img src="images/shapoorji-logo.png" alt="SOBO SANDS THE ODYSSEY" class="nav-logo" style="height:38px;width:auto;object-fit:contain;transition:filter 0.3s ease;">
+      <img src="images/logo.png" alt="SOBO SANDS THE ODYSSEY" class="nav-logo" style="height:32px;width:auto;object-fit:contain;transition:filter 0.3s ease;">
     </a>
 
     <!-- Desktop Nav Links -->
@@ -396,7 +476,7 @@
   <div class="hero-content">
 
     <!-- Left: Text content -->
-    <div class="flex-1 max-w-xl">
+    <div class="flex-1">
       <!-- Eyebrow -->
       <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:#C4965A;margin-bottom:10px;">
         The Beachfront Side of Queen's Necklace
@@ -407,7 +487,7 @@
         MUMBAI'S FINEST<br>BEACHFRONT<br>ADDRESS
       </h1>
 
-      <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width:60%;height:100%;">
+      <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width:40%;height:100%;">
 
       <!-- Gold rule -->
       <span class="gold-rule"></span>
@@ -418,7 +498,7 @@
       </p>
 
       <!-- CTA Buttons -->
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap gap-4" style="align-items:flex-start;">
         <button onclick="showHeroForm()" class="btn-gold">
           Schedule Private Preview
           <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
@@ -431,11 +511,13 @@
             <path d="M5 1V11M5 11L1 7M5 11L9 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button> -->
+
+        <img src="images/pricing.png" alt="SOBO SANDS" style="width:60%;height:100%;">
       </div>
     </div>
 
     <!-- Right: Private Preview Card (hidden by default, shown on button click) -->
-    <div id="hero-form-card" class="hidden lg:block flex-shrink-0 ml-auto" style="width:300px;align-self:center;opacity:0;transition:opacity 0.4s ease;pointer-events:none;">
+    <div id="hero-form-card" class="hidden lg:block flex-shrink-0 ml-auto" style="width:300px;align-self:center;opacity:0;transition:opacity 0.4s ease;pointer-events:none; z-index:3;">
       <div style="position:relative;background:#FFFFFF;padding:30px 28px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.2);border-radius:0;overflow:hidden;">
 
         <!-- Close button -->
@@ -491,6 +573,19 @@
         </div>
 
       </div>
+    </div>
+
+    <!-- RERA Details — top-right tab that expands in place (Lodha-style) -->
+    <button type="button" id="rera-tab" class="rera-tab" onclick="openReraPanel()">Click here for<br>RERA details</button>
+    <div id="rera-panel" class="rera-panel">
+      <button type="button" class="rera-close" onclick="closeReraPanel()" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4A4A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="rera-text">
+        <b>RERA Registration No:</b><br>P51900050998<br><br>
+        <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener">https://maharera.maharashtra.gov.in/</a>
+      </div>
+      <img class="rera-qr" src="images/rera-qr.png" alt="RERA QR Code">
     </div>
 
   </div>
@@ -566,7 +661,7 @@
 
       <!-- Col 2: Body Text (35%) -->
       <div style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;color:#2C2218;line-height:1.85;">
-        <p style="margin-bottom:22px;">In South Bombay, the sea has always been the measure of arrival.</p>
+        <p style="margin-bottom:22px;">In South Mumbai, the sea has always been the measure of arrival.</p>
         <p style="margin-bottom:22px;">For a century, every great address claimed its place by claiming the water.</p>
         <p style="margin-bottom:22px;">So the sea view became the ceiling.<br>Every tower has one.<br>It separates no one.</p>
         <p style="font-family:'Optima',sans-serif;font-size:18px;font-weight:400;font-style:normal;color:#C4965A;letter-spacing:0.03em;line-height:1;">UNTIL NOW.</p>
@@ -601,7 +696,7 @@
     <div class="w-full lg:w-1/2 flex items-center" style="padding:60px 52px;">
       <div class="w-full">
         <!-- Eyebrow -->
-        <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:#C4965A;margin-bottom:16px;">Introducing</p>
+        <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#000;margin-bottom:16px;">Introducing</p>
 
         <!-- Brand Name -->
         <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width: 360px;display:block;filter: invert(1);margin: -3% 0 20px 0;">
@@ -617,58 +712,64 @@
 
           <!-- Hexagon / Floor Residence -->
           <div class="flex items-center gap-5">
-            <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+            <!-- <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
               <path d="M9 1L16.79 5.5V13.5L9 18L1.21 13.5V5.5L9 1Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
-            </svg>
+            </svg> -->
+            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Majestic views of the Arabian sea & Queen’s Necklace</span>
           </div>
 
           <!-- Crane / Sky Gallery -->
           <div class="flex items-center gap-5">
-            <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+            <!-- <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
               <path d="M3 18V4L9 1L15 4V18" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M3 7H15" stroke="#C4965A" stroke-width="1" stroke-linecap="round"/>
               <path d="M6 18V12H12V18" stroke="#C4965A" stroke-width="1" stroke-linejoin="round"/>
               <rect x="7.5" y="3" width="3" height="3" rx="0.5" stroke="#C4965A" stroke-width="0.8"/>
-            </svg>
+            </svg> -->
+            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Taller than The Great Pyramid of Giza</span>
           </div>
 
           <!-- Car -->
           <div class="flex items-center gap-5">
-            <svg width="30" height="30" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;">
+            <!-- <svg width="30" height="30" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;">
               <path d="M4 8H2C1.45 8 1 8.45 1 9V12H19V9C19 8.45 18.55 8 18 8H16" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round"/>
               <path d="M4 8L6 2H14L16 8H4Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
               <circle cx="5" cy="12" r="2" stroke="#C4965A" stroke-width="1.1"/>
               <circle cx="15" cy="12" r="2" stroke="#C4965A" stroke-width="1.1"/>
-            </svg>
+            </svg> -->
+            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Expansive Decks</span>
           </div>
 
           <!-- Shield -->
           <div class="flex items-center gap-5">
-            <svg width="30" height="30" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+            <!-- <svg width="30" height="30" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
               <path d="M8 1L1 4V9C1 12.87 4.13 16.48 8 17.5C11.87 16.48 15 12.87 15 9V4L8 1Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
               <path d="M5.5 9L7 10.5L10.5 7" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            </svg> -->
+            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Ample Car Parking</span>
           </div>
 
           <!-- Sun -->
           <div class="flex items-center gap-5">
-            <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
+            <!-- <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
               <circle cx="9" cy="9" r="3.5" stroke="#C4965A" stroke-width="1.1"/>
               <path d="M9 1V2.5M9 15.5V17M1 9H2.5M15.5 9H17M3.22 3.22L4.28 4.28M13.72 13.72L14.78 14.78M14.78 3.22L13.72 4.28M4.28 13.72L3.22 14.78" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round"/>
-            </svg>
+            </svg> -->
+            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Sea- facing two residences per floor</span>
           </div>
 
           <!-- Diamond -->
           <div class="flex items-center gap-5">
-            <svg width="30" height="30" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;">
+            <!-- <svg width="30" height="30" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;">
               <path d="M9 15L1 6L4 1H14L17 6L9 15Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
               <path d="M1 6H17M4 1L7 6M14 1L11 6" stroke="#C4965A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            </svg> -->
+            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Plethora of Amenities</span>
           </div>
 
@@ -768,7 +869,10 @@
     </button>
 
     <div style="max-width:85vw;max-height:85vh;text-align:center;">
-      <img id="gallery-lightbox-img" src="" alt="" style="max-width:85vw;max-height:75vh;object-fit:contain;border-radius:2px;">
+      <div style="position:relative;display:inline-block;">
+        <img id="gallery-lightbox-img" src="" alt="" style="max-width:85vw;max-height:75vh;object-fit:contain;border-radius:2px;display:block;">
+        <span id="gallery-lightbox-aitag" class="ai-tag ai-tag-r">Artist's Impression</span>
+      </div>
       <p id="gallery-lightbox-caption" style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;margin-top:18px;"></p>
     </div>
   </div>
@@ -793,7 +897,7 @@
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
           <!-- SOBO SANDS text overlay — bottom of right half -->
           <div style="position:absolute;bottom:24px;left:50%;right:0;padding:0 24px;">
-            <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin-bottom:6px;">SOBO SANDS Beachfront</p>
+            <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin-bottom:6px;">SOBO SANDS Beachfront</p>
             <p style="font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#ffffff;line-height:1.6;">Living on the shoreline.<br>The sea at your doorstep.</p>
           </div>
         </div>
@@ -802,12 +906,12 @@
         <div id="cmp-left" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
           <div id="cmp-left-inner" style="position:absolute;top:0;left:0;bottom:0;width:66vw;">
             <img src="images/facing-the-sea-right.jpg" alt="Typical Sea View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
-            <span class="ai-tag ai-tag-l ai-tag-top">Artist's Impression</span>
+            <span class="ai-tag ai-tag-l ai-tag-top">Actual View</span>
             <!-- dark overlay for text readability -->
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
             <!-- Text overlay — bottom left -->
             <div style="position:absolute;bottom:24px;left:0;right:0;padding:0 24px;">
-              <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin-bottom:6px;">Typical Sea View</p>
+              <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin-bottom:6px;">Typical Sea View</p>
               <p style="font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#ffffff;line-height:1.6;">Facing the sea.<br>A view from afar.</p>
             </div>
           </div>
@@ -935,12 +1039,12 @@
 
           <!-- Links + Social -->
           <div style="display:flex;align-items:center;gap:20px;">
-            <a href="#" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a>
+            <a href="#" onclick="openLegalModal('privacy');return false;" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a>
             <span style="color:rgba(255,255,255,0.2);font-size:10px;">|</span>
-            <a href="#" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Terms &amp; Conditions</a>
+            <a href="#" onclick="openLegalModal('terms');return false;" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Terms &amp; Conditions</a>
             <div style="width:1px;height:14px;background:rgba(255,255,255,0.15);margin:0 4px;"></div>
             <!-- Instagram -->
-            <a href="#" aria-label="Instagram" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+            <a href="https://www.instagram.com/shapoorjipallonjirealestate?igsh=MWJiejd6Zmlsd296OQ==" target="_blank" aria-label="Instagram" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <circle cx="12" cy="12" r="4"/>
@@ -948,26 +1052,26 @@
               </svg>
             </a>
             <!-- Facebook -->
-            <a href="#" aria-label="Facebook" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+            <!-- <a href="#" aria-label="Facebook" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 2H15a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
               </svg>
-            </a>
+            </a> -->
             <!-- YouTube -->
-            <a href="#" aria-label="YouTube" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+            <!-- <a href="#" aria-label="YouTube" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
               <svg width="18" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
                 <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
               </svg>
-            </a>
+            </a> -->
             <!-- LinkedIn -->
-            <a href="#" aria-label="LinkedIn" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
+            <!-- <a href="#" aria-label="LinkedIn" style="color:rgba(255,255,255,0.4);text-decoration:none;display:flex;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
                 <rect x="2" y="9" width="4" height="12"/>
                 <circle cx="4" cy="4" r="2"/>
               </svg>
-            </a>
+            </a> -->
           </div>
 
         </div>
@@ -980,15 +1084,30 @@
         <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.04em;color:rgba(255,255,255,0.55);margin-bottom:14px;">
           Site Address: Shapoorji Pallonji The Odyssey, Harishchandra Goregaonkar Road, Off Marine Drive, Gamdevi, Mumbai 400 007.
         </p>
-        <p style="font-family:'Optima',sans-serif;font-size:9.5px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.35);">
-          Disclaimer: The project development and marketing are managed by Shapoorji Pallonji Group company in collaboration with Floreat Investments Private Limited (Rera No: P51900050998), the promoters of the project. The communication does not constitute an offer and/or contract of any type. Any prospective sale shall be governed by the terms and Agreement for Sale to be entered into between the parties. Before deciding on the purchase, customers are requested to independently either directly or through the concerned legal/finance advisor, thoroughly verify all details/documents pertaining to the project. The starting price ₹14.49 Cr. is for a 3 BHK &ndash; Series &quot;07&quot; on the &quot;20th&quot; floor of The Odyssey. Other charges like clubhouse development, advance building maintenance charges, corpus fund building maintenance, corpus fund, clubhouse corpus fund towards amenities, legal expenses incurred, and Government levies/taxes are extra. Visuals used are for representative purposes only. Images are digitally enhanced, and no photos have been shot at the sales-mentioned addresses. Positions, features, equipment, furniture, furnishings, light fittings etc. shown in the render are for illustration only. Other T&amp;Cs apply. For more details, visit <a href="https://sobosandsodyssey.com/" style="color:rgba(255,255,255,0.5);text-decoration:underline;">https://sobosandsodyssey.com/</a>
-        </p>
       </div>
     </div>
   </div>
 
 
 </footer>
+
+<!-- Legal Modal (Privacy Policy / Terms & Conditions) -->
+<div id="legal-modal" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;padding:24px;">
+  <div style="position:relative;background:#ffffff;max-width:720px;width:100%;max-height:85vh;display:flex;flex-direction:column;border-radius:4px;overflow:hidden;">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 28px;border-bottom:1px solid #E8E0D8;flex-shrink:0;">
+      <p id="legal-modal-title" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#1A1A1A;">Terms &amp; Conditions</p>
+      <button type="button" onclick="closeLegalModal()" aria-label="Close" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A4A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Body (scrollable) -->
+    <div id="legal-modal-body" style="padding:24px 28px 32px;overflow-y:auto;font-family:'Optima',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:#4A4A4A;"></div>
+
+  </div>
+</div>
 
 
 <!-- ============================================================ -->
@@ -1073,11 +1192,11 @@
 
   // 3b. Gallery lightbox (fancybox-style popup)
   var galleryImages = [
-    { src: 'images/slider/big/1.jpg', caption: 'Sky Gallery' },
-    { src: 'images/slider/big/2.jpg', caption: 'Master Suite' },
-    { src: 'images/slider/big/3.jpg', caption: 'Living Area' },
-    { src: 'images/slider/big/4.jpg', caption: 'Lobby' },
-    { src: 'images/slider/big/5.jpg', caption: 'Night View' }
+    { src: 'images/slider/big/1.jpg', caption: 'Sky Gallery', aiTag: true },
+    { src: 'images/slider/big/2.jpg', caption: 'Master Suite', aiTag: true },
+    { src: 'images/slider/big/3.jpg', caption: 'Living Area', aiTag: false },
+    { src: 'images/slider/big/4.jpg', caption: 'Lobby', aiTag: false },
+    { src: 'images/slider/big/5.jpg', caption: 'Night View', aiTag: true }
   ];
   var lightboxIdx = 0;
 
@@ -1086,6 +1205,7 @@
     document.getElementById('gallery-lightbox-img').src = item.src;
     document.getElementById('gallery-lightbox-img').alt = item.caption;
     document.getElementById('gallery-lightbox-caption').textContent = item.caption;
+    document.getElementById('gallery-lightbox-aitag').style.display = item.aiTag ? '' : 'none';
   }
 
   function openLightbox(idx) {
@@ -1115,6 +1235,57 @@
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowRight') lightboxMove(1);
     if (e.key === 'ArrowLeft') lightboxMove(-1);
+  });
+
+  // 3c. Legal modal (Terms & Conditions)
+  var legalContent = {
+    terms: {
+      title: 'Terms &amp; Conditions',
+      paragraphs: [
+        "In no event will Shapoorji Pallonji And Company Private Limited be liable for any loss or damages arising from the use of or reliance on information provided on this website. The use of any information or material on this website is entirely at the visitor’s own risk. The information on this website does not constitute a legal offer and/or contract of any such type between the owner/developer and the visitor. The names, marks and copyrights in the artistic style in which they are represented herein belong to and are owned by Shapoorji Pallonji And Company Private Limited. This website contains material which is owned by or licensed by Shapoorji Pallonji And Company Private Limited and is protected by copyright and intellectual property laws. Reproduction is prohibited without prior permission in writing. Shapoorji Pallonji And Company Private Limited has the right to alter the information of this website without obligation to communicate any changes. A visitor, by the act of submitting information through the website or email will be considered to warrant that he/she has provided true, accurate, current and complete information. By entering a mobile number, a visitor is considered to have consent to Shapoorji Pallonji And Company Private Limited to send alerts, promotional SMS and the permission to be contacted. Shapoorji Pallonji And Company Private Limited shall make every effort to keep the website free of viruses and other harmful components but does not warrant the same. This website and emails from Shapoorji Pallonji And Company Private Limited are vulnerable to data corruption, interception, tampering, viruses as well as delivery error and the visitor accepts liability for any consequences that may arise from them. The designs, plans, specifications, facilities, images, features, etc. shown on this website are only indicative and subject to the approval of the respective authorities. The owner/developer reserves the right to change these without any notice or objections. Shapoorji Pallonji And Company Private Limited or any of its employees, managers or representatives shall not be responsible for any damage or economic loss arising out of or related to the use of the website. The website may contain links to other websites which are not under control of Shapoorji Pallonji And Company Private Limited. Any link to off-site pages or other may be accessed by the visitor at his own risk.",
+        "Disclaimer: The project development and marketing are managed by Shapoorji Pallonji Group company in collaboration with Floreat Investments Private Limited (Rera No: P51900050998), the promoters of the project. The communication does not constitute an offer and/or contract of any type. Any prospective sale shall be governed by the terms and Agreement for Sale to be entered into between the parties. Before deciding on the purchase, customers are requested to independently either directly or through the customer’s legal/finance advisors, thoroughly verify all details/documents pertaining to the project. *The starting price ₹14.49 Cr. is for a 3 BHK – Series “01” on the “35th” floor of The Odyssey. Other charges like clubhouse development, advance building maintenance charges, corpus fund building maintenance, corpus fund, clubhouse corpus fund towards association, legal expenses incurred, and Government levies/taxes are extra. Images / Visuals used are for representative purposes only. Images are digitally enhanced, and no photos have been shot at site unless mentioned otherwise. Products, features, equipment, furniture, furnishings, light fittings etc. shown in the render are for reference only. Views may not be perpetual. The promoter shall undertake the development of the layout in a phased manner. The project is mortgaged to Vistra ITCL (India) Ltd., and its NOC for sale of flat shall be provided. Please contact us to know more. Other T&amp;Cs apply. For more details, Visit – <a href=\"https://shapoorjirealestate.com/\" target=\"_blank\" rel=\"noopener\" style=\"color:#C4965A;\">https://shapoorjirealestate.com/</a>"
+      ]
+    }
+  };
+  legalContent.privacy = { title: 'Privacy Policy', paragraphs: legalContent.terms.paragraphs };
+
+  function openLegalModal(type) {
+    var data = legalContent[type];
+    if (!data) return;
+    document.getElementById('legal-modal-title').innerHTML = data.title;
+    document.getElementById('legal-modal-body').innerHTML = data.paragraphs.map(function(p){
+      return '<p style="margin-bottom:16px;">' + p + '</p>';
+    }).join('');
+    document.getElementById('legal-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLegalModal() {
+    document.getElementById('legal-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('legal-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeLegalModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('legal-modal').style.display === 'flex') closeLegalModal();
+  });
+
+  // 3d. RERA details — tab expands into panel in place
+  function openReraPanel() {
+    document.getElementById('rera-tab').classList.add('hidden');
+    document.getElementById('rera-panel').classList.add('open');
+  }
+
+  function closeReraPanel() {
+    document.getElementById('rera-panel').classList.remove('open');
+    document.getElementById('rera-tab').classList.remove('hidden');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('rera-panel').classList.contains('open')) closeReraPanel();
   });
 
   // 4. Comparison slider — handled by inline script after section HTML
