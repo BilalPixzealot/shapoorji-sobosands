@@ -10,32 +10,16 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Non-render-blocking font load: preload the stylesheet, then swap it to an active stylesheet once fetched -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"></noscript>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            gold: '#C4965A',
-            'gold-dark': '#A87A40',
-            'dark-bg': '#1C1712',
-            cream: '#F5F0E8',
-            sand: '#E8DDD0',
-            'text-dark': '#1A1A1A',
-            'text-mid': '#4A4A4A',
-            'text-light': '#888888',
-            border: '#E0D8CC',
-          },
-          fontFamily: {
-            display: ['Optima', 'sans-serif'],
-            body: ['Optima', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+  <!-- Preload the LCP image (hero banner) so it starts downloading immediately -->
+  <link rel="preload" as="image" href="images/main-banner.jpg" fetchpriority="high">
+
+  <!-- Precompiled, purged Tailwind CSS (replaces render-blocking cdn.tailwindcss.com JIT script) -->
+  <link rel="stylesheet" href="css/tailwind.css">
 
   <style>
     /* Critical above-fold CSS */
@@ -506,7 +490,7 @@
 
     <!-- Logo -->
     <a href="#" class="flex-shrink-0">
-      <img src="images/logo.png" alt="SOBO SANDS THE ODYSSEY" class="nav-logo" style="height:32px;width:auto;object-fit:contain;transition:filter 0.3s ease;">
+      <img src="images/logo.png" alt="SOBO SANDS THE ODYSSEY" class="nav-logo" width="877" height="67" style="height:32px;width:auto;object-fit:contain;transition:filter 0.3s ease;">
     </a>
 
     <!-- Desktop Nav Links -->
@@ -545,7 +529,7 @@
 <section id="hero" class="hero-section">
 
   <!-- Background Image -->
-  <img class="hero-bg-img" src="images/main-banner.jpg" alt="Mumbai Marine Drive aerial" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+  <img class="hero-bg-img" src="images/main-banner.jpg" alt="Mumbai Marine Drive aerial" width="4000" height="1875" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
   <span class="ai-tag ai-tag-r">Artist's Impression</span>
 
   <!-- Dark overlay -->
@@ -566,7 +550,7 @@
         MUMBAI'S FINEST<br>BEACHFRONT<br>ADDRESS
       </h1>
 
-      <img class="hero-sobo-logo" src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width:40%;">
+      <img class="hero-sobo-logo" src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" width="834" height="114" style="width:40%;">
 
       <!-- Gold rule -->
       <span class="gold-rule"></span>
@@ -591,7 +575,7 @@
           </svg>
         </button> -->
 
-        <img class="pricing-img" src="images/pricing.png" alt="SOBO SANDS" style="width:60%;height:100%;">
+        <img class="pricing-img" src="images/pricing.png" alt="SOBO SANDS" width="2580" height="301" style="width:60%;height:100%;">
       </div>
     </div>
 
@@ -664,7 +648,7 @@
         <b>RERA Registration No:</b><br>P51900050998<br><br>
         <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener">https://maharera.maharashtra.gov.in/</a>
       </div>
-      <img class="rera-qr" src="images/rera-qr.png" alt="RERA QR Code">
+      <img class="rera-qr" src="images/rera-qr.png" alt="RERA QR Code" width="118" height="118" loading="lazy">
     </div>
 
   </div>
@@ -714,7 +698,7 @@
       <!-- Col 3: Image (30%) -->
       <div>
         <div class="story-img" style="position:relative;width:100%;height:580px;overflow:hidden;">
-          <img src="images/century-of-prestige.jpg" alt="Luxury residence overlooking the sea" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="images/century-of-prestige.jpg" alt="Luxury residence overlooking the sea" width="1562" height="1646" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
           <span class="ai-tag ai-tag-r">Artist's Impression</span>
         </div>
       </div>
@@ -732,7 +716,7 @@
 
     <!-- Left: Building Image (40%) -->
     <div class="w-full lg:w-1/2" style="position:relative;overflow:hidden;">
-      <img src="images/introducing-sobo-sands.jpg" alt="SOBO SANDS tower exterior" style="width:100%;object-fit:cover;object-position:center;display:block;">
+      <img src="images/introducing-sobo-sands.jpg" alt="SOBO SANDS tower exterior" width="1562" height="1646" loading="lazy" style="width:100%;object-fit:cover;object-position:center;display:block;">
       <span class="ai-tag ai-tag-r">Artist's Impression</span>
     </div>
 
@@ -743,7 +727,7 @@
         <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#000;margin-bottom:16px;">Introducing</p>
 
         <!-- Brand Name -->
-        <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width: 360px;display:block;filter: invert(1);margin: -3% 0 20px 0;">
+        <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" width="834" height="114" loading="lazy" style="width: 360px;display:block;filter: invert(1);margin: -3% 0 20px 0;">
 
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.6vw,22px);font-weight:300;color:#1A1A1A;letter-spacing:0.18em;margin-bottom:10px;">THE ODYSSEY</h3>
         <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:300;color:#888888;letter-spacing:0.08em;margin-bottom:32px;">Off Marine Drive, Mumbai</p>
@@ -759,7 +743,7 @@
             <!-- <svg width="30" height="30" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:1px;">
               <path d="M9 1L16.79 5.5V13.5L9 18L1.21 13.5V5.5L9 1Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
             </svg> -->
-            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
+            <img src="images/leaf.png" alt="leaf" width="41" height="18" loading="lazy" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Majestic views of the Arabian sea & Queen’s Necklace</span>
           </div>
 
@@ -771,7 +755,7 @@
               <path d="M6 18V12H12V18" stroke="#C4965A" stroke-width="1" stroke-linejoin="round"/>
               <rect x="7.5" y="3" width="3" height="3" rx="0.5" stroke="#C4965A" stroke-width="0.8"/>
             </svg> -->
-            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
+            <img src="images/leaf.png" alt="leaf" width="41" height="18" loading="lazy" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Taller than The Great Pyramid of Giza</span>
           </div>
 
@@ -783,7 +767,7 @@
               <circle cx="5" cy="12" r="2" stroke="#C4965A" stroke-width="1.1"/>
               <circle cx="15" cy="12" r="2" stroke="#C4965A" stroke-width="1.1"/>
             </svg> -->
-            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
+            <img src="images/leaf.png" alt="leaf" width="41" height="18" loading="lazy" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Expansive Decks</span>
           </div>
 
@@ -793,7 +777,7 @@
               <path d="M8 1L1 4V9C1 12.87 4.13 16.48 8 17.5C11.87 16.48 15 12.87 15 9V4L8 1Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
               <path d="M5.5 9L7 10.5L10.5 7" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
             </svg> -->
-            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
+            <img src="images/leaf.png" alt="leaf" width="41" height="18" loading="lazy" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Ample Car Parking</span>
           </div>
 
@@ -803,7 +787,7 @@
               <circle cx="9" cy="9" r="3.5" stroke="#C4965A" stroke-width="1.1"/>
               <path d="M9 1V2.5M9 15.5V17M1 9H2.5M15.5 9H17M3.22 3.22L4.28 4.28M13.72 13.72L14.78 14.78M14.78 3.22L13.72 4.28M4.28 13.72L3.22 14.78" stroke="#C4965A" stroke-width="1.1" stroke-linecap="round"/>
             </svg> -->
-            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
+            <img src="images/leaf.png" alt="leaf" width="41" height="18" loading="lazy" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Sea- facing two residences per floor</span>
           </div>
 
@@ -813,7 +797,7 @@
               <path d="M9 15L1 6L4 1H14L17 6L9 15Z" stroke="#C4965A" stroke-width="1.1" stroke-linejoin="round"/>
               <path d="M1 6H17M4 1L7 6M14 1L11 6" stroke="#C4965A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
             </svg> -->
-            <img src="images/leaf.png" alt="leaf" style="width: 30px;display:block;">
+            <img src="images/leaf.png" alt="leaf" width="41" height="18" loading="lazy" style="width: 30px;display:block;">
             <span style="font-family:'Optima',sans-serif;font-size:14px;font-weight:400;letter-spacing:0;text-transform:uppercase;color:#1A1A1A;line-height:1.6;">Plethora of Amenities</span>
           </div>
 
@@ -853,7 +837,7 @@
 
       <!-- Card 1 -->
       <div class="gallery-card flex-shrink-0" onclick="openLightbox(0)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
-        <img src="images/slider/1.jpg" alt="Sky Gallery" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <img src="images/slider/1.jpg" alt="Sky Gallery" width="938" height="938" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <span class="ai-tag ai-tag-r ai-tag-top">Artist's Impression</span>
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Sky Gallery</span>
@@ -862,7 +846,7 @@
 
       <!-- Card 2 -->
       <div class="gallery-card flex-shrink-0" onclick="openLightbox(1)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
-        <img src="images/slider/2.jpg" alt="Master Suite" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <img src="images/slider/2.jpg" alt="Master Suite" width="938" height="938" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <span class="ai-tag ai-tag-r ai-tag-top">Artist's Impression</span>
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Master Suite</span>
@@ -871,7 +855,7 @@
 
       <!-- Card 3 -->
       <div class="gallery-card flex-shrink-0" onclick="openLightbox(2)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
-        <img src="images/slider/3.jpg" alt="Living Area" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <img src="images/slider/3.jpg" alt="Living Area" width="938" height="938" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <span class="ai-tag ai-tag-r ai-tag-top">Artist's Impression</span>
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Living Area</span>
@@ -880,7 +864,7 @@
 
       <!-- Card 4 -->
       <div class="gallery-card flex-shrink-0" onclick="openLightbox(3)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
-        <img src="images/slider/4.jpg" alt="Lobby" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <img src="images/slider/4.jpg" alt="Lobby" width="937" height="938" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <span class="ai-tag ai-tag-r ai-tag-top">Artist's Impression</span>
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Lobby</span>
@@ -889,7 +873,7 @@
 
       <!-- Card 5 -->
       <div class="gallery-card flex-shrink-0" onclick="openLightbox(4)" style="position:relative;height:250px;border-radius:4px;overflow:hidden;cursor:pointer;">
-        <img src="images/slider/5.jpg" alt="Night View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+        <img src="images/slider/5.jpg" alt="Night View" width="938" height="938" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
         <span class="ai-tag ai-tag-r ai-tag-top">Artist's Impression</span>
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);padding:36px 14px 14px;">
           <span style="font-family:'Optima',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:#ffffff;display:block;text-align:center;">Night View</span>
@@ -935,7 +919,7 @@
 
         <!-- RIGHT image: SOBO SANDS (full size, behind) -->
         <div style="position:absolute;inset:0;">
-          <img src="images/facing-the-sea-left.jpg" alt="SOBO SANDS Beachfront" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+          <img src="images/facing-the-sea-left.jpg" alt="SOBO SANDS Beachfront" width="2708" height="1042" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
           <span class="ai-tag ai-tag-r ai-tag-top">Artist's Impression</span>
           <!-- dark overlay for text readability -->
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
@@ -949,7 +933,7 @@
         <!-- LEFT image: Typical (clips to reveal right on drag) -->
         <div id="cmp-left" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
           <div id="cmp-left-inner" style="position:absolute;top:0;left:0;bottom:0;width:66vw;">
-            <img src="images/facing-the-sea-right.jpg" alt="Typical Sea View" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+            <img src="images/facing-the-sea-right.jpg" alt="Typical Sea View" width="2708" height="1040" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
             <span class="ai-tag ai-tag-l ai-tag-top">Actual View</span>
             <!-- dark overlay for text readability -->
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 60%,transparent 100%);"></div>
@@ -1011,7 +995,7 @@
 <footer id="contact" style="padding: 72px 0 30px; position: relative;">
   <!-- Background image -->
   <div style="position:absolute;inset:0;z-index:0;">
-    <img src="images/footer-bg.jpg" alt="Mumbai beachfront" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+    <img src="images/footer-bg.jpg" alt="Mumbai beachfront" width="4002" height="834" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
     <!-- <span class="ai-tag ai-tag-r">Artist's Impression</span> -->
     <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,6,2,0.82) 45%,rgba(10,6,2,0.55) 100%);"></div>
   </div>
@@ -1072,13 +1056,13 @@
 
           <!-- Logo -->
           <div style="flex-shrink:0;">
-            <img src="images/sobo-sands-logo.png" alt="SOBO SANDS THE ODYSSEY" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
+            <img src="images/sobo-sands-logo.png" alt="SOBO SANDS THE ODYSSEY" width="834" height="114" loading="lazy" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);">
           </div>
 
           <!-- Center: A Project By + SP Logo -->
           <div style="display:flex;align-items:center;gap:12px;">
             <span style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);">A PROJECT BY</span>
-            <img src="images/shapoorji-logo.png" alt="Shapoorji Pallonji Real Estate" style="height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.75;">
+            <img src="images/shapoorji-logo.png" alt="Shapoorji Pallonji Real Estate" width="5788" height="1176" loading="lazy" style="height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.75;">
           </div>
 
           <!-- Links + Social -->
