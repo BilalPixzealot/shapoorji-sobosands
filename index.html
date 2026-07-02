@@ -299,11 +299,83 @@
     .input-field:focus-within { border-bottom-color: #C4965A; }
     .input-field:focus-within svg { stroke: #C4965A; }
 
-    @media (max-width: 639px) {
-      .hero-content { padding: 0 24px; flex-direction: column; justify-content: center; gap: 32px; padding-top: 80px; }
+    @media (max-width: 767px) {
+      .hero-content { padding: 0 24px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 32px; }
+      .hero-content > .flex-1 { flex: none !important; width: 100%; }
     }
-    @media (min-width: 640px) and (max-width: 1023px) {
+    @media (min-width: 768px) and (max-width: 1023px) {
       .hero-content { padding: 0 40px; }
+    }
+
+    /* ===================== Below 1023px fixes ===================== */
+    @media (max-width: 1023px) {
+      /* Hero section — background focuses right side, pricing image goes full-width */
+      .hero-bg-img { object-position: right !important; }
+      .pricing-img { width: 100% !important; }
+
+      /* Section 3: Story — stack single column with side padding so text never touches the edge */
+      section#story { padding-top: 48px; padding-bottom: 48px; }
+      .story-wrap { padding-left: 24px !important; padding-right: 24px !important; margin-right: auto !important; }
+      .story-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: left; }
+      .story-img { height: 340px !important; }
+
+      /* Section 6: Comparison — stack slider above the quote block */
+      .cmp-grid { grid-template-columns: 1fr !important; height: auto !important; }
+      .cmp-slider { height: 320px !important; }
+      #cmp-left-inner { width: 100vw !important; }
+      .cmp-right-col { padding: 36px 24px !important; }
+      .cmp-right-col h3 { font-size: 28px !important; }
+
+      /* Footer CTA — stack heading above form, form fields stack full width */
+      .footer-cta-row { flex-direction: column !important; align-items: flex-start !important; gap: 28px !important; }
+      .footer-cta-form { flex-direction: column !important; }
+      .footer-cta-fields { flex-direction: column !important; }
+      .footer-cta-btn-wrap { justify-content: stretch !important; }
+      .footer-cta-btn { width: 100%; }
+
+      /* Footer bar — wrap logo / project-by / links into centered rows */
+      .footer-bar-row { flex-direction: column !important; justify-content: center !important; text-align: center; gap: 20px !important; }
+      .footer-links-row { flex-wrap: wrap; justify-content: center; row-gap: 10px; }
+    }
+
+    /* Desktop: preserve original edge-to-edge bleed for Section 3's image column */
+    @media (min-width: 1024px) {
+      .story-wrap { padding-right: 0 !important; }
+    }
+
+    /* ===================== Below 480px fixes ===================== */
+    @media (max-width: 480px) {
+      /* Section 4: Introducing SOBO SANDS — single column features list instead of 2x2, reduced side padding */
+      .features-grid { grid-template-columns: 1fr !important; }
+      .residences-content { padding: 40px 24px !important; }
+
+      /* Footer wide-container — reduce side padding to 20px */
+      footer .wide-container { padding-left: 20px !important; padding-right: 20px !important; }
+
+      /* Navbar logo — shrink so it doesn't overflow the viewport */
+      .nav-logo { height: 24px !important; }
+
+      /* Hero banner — SOBO SANDS logo fixed width */
+      .hero-sobo-logo { width: 250px !important; }
+    }
+
+    /* Hero form card — below 1023px, show as centered popup with backdrop instead of inline sidebar */
+    @media (max-width: 1023px) {
+      .hero-form-card {
+        position: fixed !important;
+        inset: 0 !important;
+        width: auto !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center;
+        align-self: stretch !important;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.65);
+        z-index: 150 !important;
+        height: 100%;
+      }
+      .hero-form-card > div { width: 100%; max-width: 340px; max-height: 88vh; overflow-y: auto; }
     }
 
     /* Artist's impression disclaimer tag — small corner label on project visuals */
@@ -466,7 +538,7 @@
 <section id="hero" class="hero-section">
 
   <!-- Background Image -->
-  <img src="images/main-banner.jpg" alt="Mumbai Marine Drive aerial" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+  <img class="hero-bg-img" src="images/main-banner.jpg" alt="Mumbai Marine Drive aerial" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
   <span class="ai-tag ai-tag-r">Artist's Impression</span>
 
   <!-- Dark overlay -->
@@ -483,11 +555,11 @@
       </p>
 
       <!-- H1 -->
-      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.5vw,52px);font-weight:300;color:#ffffff;line-height:0.95;letter-spacing:0.02em;">
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,52px);font-weight:300;color:#ffffff;line-height:0.95;letter-spacing:0.02em;">
         MUMBAI'S FINEST<br>BEACHFRONT<br>ADDRESS
       </h1>
 
-      <img src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width:40%;height:100%;">
+      <img class="hero-sobo-logo" src="images/sobo-sands-logo.png" alt="SOBO SANDS Logo" style="width:40%;">
 
       <!-- Gold rule -->
       <span class="gold-rule"></span>
@@ -512,12 +584,12 @@
           </svg>
         </button> -->
 
-        <img src="images/pricing.png" alt="SOBO SANDS" style="width:60%;height:100%;">
+        <img class="pricing-img" src="images/pricing.png" alt="SOBO SANDS" style="width:60%;height:100%;">
       </div>
     </div>
 
     <!-- Right: Private Preview Card (hidden by default, shown on button click) -->
-    <div id="hero-form-card" class="hidden lg:block flex-shrink-0 ml-auto" style="width:300px;align-self:center;opacity:0;transition:opacity 0.4s ease;pointer-events:none; z-index:3;">
+    <div id="hero-form-card" class="hero-form-card flex-shrink-0 ml-auto" onclick="if(event.target===this)hideHeroForm();" style="width:300px;align-self:center;opacity:0;transition:opacity 0.4s ease;pointer-events:none; z-index:3;">
       <div style="position:relative;background:#FFFFFF;padding:30px 28px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.2);border-radius:0;overflow:hidden;">
 
         <!-- Close button -->
@@ -601,48 +673,13 @@
 
 </section>
 
-<!-- Mobile Hero Form (below hero on mobile) -->
-<div class="lg:hidden" style="background:#FFFFFF;padding:30px 24px;">
-  <p style="font-family:'Optima',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#1A1A1A;margin-bottom:6px;text-align:center;">Private Preview</p>
-  <p style="font-family:'Optima',sans-serif;font-size:11px;font-weight:300;color:#888888;text-align:center;letter-spacing:0.04em;">By invitation only.</p>
-  <div style="width:28px;height:1px;background:#C4965A;margin:16px auto 22px;"></div>
-  <form onsubmit="return false;">
-    <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:20px;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
-      <input type="text" placeholder="Full Name" required style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
-        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-      </svg>
-    </div>
-    <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:20px;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
-      <input type="tel" placeholder="Mobile Number" required style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.68 19.79 19.79 0 01.37 2.08 2 2 0 012.35 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-.78a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-      </svg>
-    </div>
-    <div style="position:relative;display:flex;align-items:center;border-bottom:1px solid #E8E0D8;margin-bottom:26px;" onfocusin="this.style.borderBottomColor='#C4965A'" onfocusout="this.style.borderBottomColor='#E8E0D8'">
-      <input type="email" placeholder="Email Address" required style="flex:1;font-family:'Optima',sans-serif;font-size:12px;font-weight:300;color:#1A1A1A;padding:9px 26px 9px 0;background:transparent;border:none;border-top:none;border-left:none;border-right:none;border-bottom:none;outline:none;box-shadow:none;border-radius:0;-webkit-appearance:none;appearance:none;width:100%;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#BBBBBB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:0;pointer-events:none;">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-      </svg>
-    </div>
-    <button type="submit" class="btn-gold" style="width:100%;justify-content:center;padding:13px 20px;font-size:10px;letter-spacing:0.18em;border-radius:0;">Request Invitation</button>
-  </form>
-  <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;">
-    <svg width="11" height="13" viewBox="0 0 24 28" fill="none" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="11" width="18" height="16" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
-      <circle cx="12" cy="19" r="1.5" fill="#BBBBBB" stroke="none"/>
-    </svg>
-    <span style="font-family:'Optima',sans-serif;font-size:10px;color:#BBBBBB;letter-spacing:0.05em;">Your details are safe with us.</span>
-  </div>
-</div>
-
 
 <!-- ============================================================ -->
 <!-- SECTION 3: STORY -->
 <!-- ============================================================ -->
 <section id="story" >
-  <div class="max-w-screen-xl mx-auto mr-0 wide-container" style="padding-right:0 !important;">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-start" style="grid-template-columns:0.9fr 0.5fr 1fr; align-items: center;">
+  <div class="max-w-screen-xl mx-auto mr-0 wide-container story-wrap">
+    <div class="story-grid grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-start" style="grid-template-columns:0.9fr 0.5fr 1fr; align-items: center;">
 
       <!-- Col 1: H2 (35%) -->
       <div style="grid-column:span 1;">
@@ -669,7 +706,7 @@
 
       <!-- Col 3: Image (30%) -->
       <div>
-        <div style="position:relative;width:100%;height:580px;overflow:hidden;">
+        <div class="story-img" style="position:relative;width:100%;height:580px;overflow:hidden;">
           <img src="images/century-of-prestige.jpg" alt="Luxury residence overlooking the sea" style="width:100%;height:100%;object-fit:cover;object-position:center;">
           <span class="ai-tag ai-tag-r">Artist's Impression</span>
         </div>
@@ -693,7 +730,7 @@
     </div>
 
     <!-- Right: Content (60%) -->
-    <div class="w-full lg:w-1/2 flex items-center" style="padding:60px 52px;">
+    <div class="residences-content w-full lg:w-1/2 flex items-center" style="padding:60px 52px;">
       <div class="w-full">
         <!-- Eyebrow -->
         <p style="font-family:'Optima',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#000;margin-bottom:16px;">Introducing</p>
@@ -708,7 +745,7 @@
         <div style="width:40px;height:1px;background:#C4965A;opacity:0.35;margin-bottom:36px;"></div>
 
         <!-- Features Grid 2x3 -->
-        <div class="grid grid-cols-2 gap-x-20 gap-y-6 w-full lg:w-5/5">
+        <div class="features-grid grid grid-cols-2 gap-x-20 gap-y-6 w-full lg:w-5/5">
 
           <!-- Hexagon / Floor Residence -->
           <div class="flex items-center gap-5">
@@ -883,11 +920,11 @@
 <!-- SECTION 6: COMPARISON -->
 <!-- ============================================================ -->
 <section id="comparison">
-  <div style="display:grid;grid-template-columns:2fr 1fr;height:420px;">
+  <div class="cmp-grid" style="display:grid;grid-template-columns:2fr 1fr;height:420px;">
 
     <!-- Left 2/3: Comparison Slider -->
     <div>
-      <div id="img-comparison" style="position:relative;height:420px;overflow:hidden;cursor:ew-resize;user-select:none;">
+      <div id="img-comparison" class="cmp-slider" style="position:relative;height:420px;overflow:hidden;cursor:ew-resize;user-select:none;">
 
         <!-- RIGHT image: SOBO SANDS (full size, behind) -->
         <div style="position:absolute;inset:0;">
@@ -977,7 +1014,7 @@
 
     <!-- Content -->
     <div class="wide-container" style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0px 60px;">
-      <div style="display:flex;flex-direction:row;align-items:center;gap:60px;">
+      <div class="footer-cta-row" style="display:flex;flex-direction:row;align-items:center;gap:60px;">
 
         <!-- Left: Heading (40%) -->
         <div style="flex:0 0 26%;">
@@ -986,10 +1023,10 @@
         </div>
 
         <!-- Right: Form (60%) -->
-        <div style="flex:1;">
-          <form onsubmit="return handleFooterForm(event);" style="display: flex; gap: 10px;">
+        <div style="flex:1;width:100%;">
+          <form class="footer-cta-form" onsubmit="return handleFooterForm(event);" style="display: flex; gap: 10px;">
             <!-- 3 fields in a row -->
-            <div style="display:flex;flex-direction:row;gap:10px;">
+            <div class="footer-cta-fields" style="display:flex;flex-direction:row;gap:10px;">
               <div style="flex:1;border:1px solid rgba(196,150,90,0.4);">
                 <input type="text" placeholder="Full Name" required
                   style="width:100%; height:100%; background:transparent;border:none;outline:none;padding:10px;font-family:'Optima',sans-serif;font-size:13px;font-weight:300;color:#ffffff;"
@@ -1007,8 +1044,8 @@
               </div>
             </div>
             <!-- Button -->
-            <div style="display:flex;justify-content:flex-end;">
-              <button type="submit" style="display:inline-flex;align-items:center;gap:10px;background-color:#C4965A;color:#ffffff;font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;padding:14px 28px;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;">
+            <div class="footer-cta-btn-wrap" style="display:flex;justify-content:flex-end;">
+              <button type="submit" class="footer-cta-btn" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background-color:#C4965A;color:#ffffff;font-family:'Optima',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;padding:14px 28px;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;">
                 REQUEST PRIVATE PRESENTATION
                 <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;">
                   <path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1024,7 +1061,7 @@
     <!-- Footer Bar -->
     <div style="padding:24px 0;">
       <div class="wide-container" style="max-width:1280px;margin:0 auto;padding:0 60px;">
-        <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;">
+        <div class="footer-bar-row" style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;">
 
           <!-- Logo -->
           <div style="flex-shrink:0;">
@@ -1038,7 +1075,7 @@
           </div>
 
           <!-- Links + Social -->
-          <div style="display:flex;align-items:center;gap:20px;">
+          <div class="footer-links-row" style="display:flex;align-items:center;gap:20px;">
             <a href="#" onclick="openLegalModal('privacy');return false;" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a>
             <span style="color:rgba(255,255,255,0.2);font-size:10px;">|</span>
             <a href="#" onclick="openLegalModal('terms');return false;" style="font-family:'Optima',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">Terms &amp; Conditions</a>
@@ -1133,9 +1170,19 @@
   })();
 
   // 2. Hero form card reveal on button click
+  var heroFormOriginalParent = null;
+  var heroFormOriginalNext = null;
+
   function showHeroForm() {
     var card = document.getElementById('hero-form-card');
     if (!card) return;
+    // Below 1024px the card becomes a fixed full-screen popup — move it out of
+    // .hero-content's stacking context (z-index:2) so it isn't trapped behind the navbar.
+    if (window.innerWidth < 1024 && card.parentNode !== document.body) {
+      heroFormOriginalParent = card.parentNode;
+      heroFormOriginalNext = card.nextSibling;
+      document.body.appendChild(card);
+    }
     card.style.opacity = '0';
     card.style.pointerEvents = 'all';
     // Force reflow then fade in
@@ -1151,6 +1198,13 @@
     if (!card) return;
     card.style.opacity = '0';
     card.style.pointerEvents = 'none';
+    // Restore to original DOM position (for desktop layout) after the fade-out completes
+    setTimeout(function() {
+      if (heroFormOriginalParent && card.parentNode === document.body) {
+        if (heroFormOriginalNext) heroFormOriginalParent.insertBefore(card, heroFormOriginalNext);
+        else heroFormOriginalParent.appendChild(card);
+      }
+    }, 450);
   }
 
   // 3. Mobile hamburger toggle
